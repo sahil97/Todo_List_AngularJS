@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>Test To-Do list with Angular</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+    <div class="container">
+        <h1> Basic To-do list using Angular</h1>
+        <h2 class="sec">Total no. of tasks : <span class="emphasis">{{getTotalTasks()}}</span>
+            <button class="close" ng-click="removeTasks()">Clear Selected</button>
+        </h2>
+        <div class="form">
+            <h2>Add a task</h2>
+            <input type="text" id="input" ng-model="input">
+            <span onclick="newElement()" class="addBtn" id="addBtn" ng-click="addTask()">Add</span>
+        </div>
+        <div class="tl">
+            <ul id="mlist">
+                <li ng-repeat="task in tasks" ng-click="task.done=!task.done" class="done-task.done"><input type="checkbox" ng-model="task.done" class="checkbox" /> {{task.text}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
